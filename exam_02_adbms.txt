@@ -1,0 +1,70 @@
+-- 
+-- Roll No: 02
+-- Name:AKSHAYA AR
+-- Program: 
+-- 
+
+
+--
+-- Table structure for table authors
+--
+
+-- ---------create/alter statement commands----------- # This line may be removed in the actual file
+
+create table authors(author_id int primary key ,author_name varchar(25) not null,nationality varchar(15),birth_year int default 1900);
+
+alter table authors add constraint birth_chk_year check (birth_year between 1700 and 2000);
+
+--
+-- Table structure for table books
+--
+
+-- ---------create/alter statement commands----------- # This line may be removed in the actual file
+
+create table books(book_id int primary key,author_id int,title varchar(100) not null unique ,genre  varchar(50),price float(5,2),constraint books_fkey_id foreign key(author_id) references authors(author_id));
+
+alter table books add constraint price_check check (price between 0 and 1000);
+
+--
+-- Dumping data for table authors
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+insert into authors values(1, 'F. Scott Fitzgerald', 'American', 1896),(2, 'Harper Lee', 'American', 1926),(3, 'J.K. Rowling', 'British', 1965),(4, 'J.R.R. Tolkien', 'British', 1892),(5, 'Dan Brown', 'American', 1964),(6, 'Stieg Larsson', 'Swedish', 1954),(7, 'Suzanne Collin', 'American', 1962);
+
+
+--
+-- Dumping data for table books
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+insert into books values (1, 1, 'The Great Gatsby', 'Fiction', 150.25),(2, 2, 'To Kill a Mockingbird', 'Fiction', 230.70),(3, 3, 'Harry Potter', 'Fantasy', 600.00),(4, 4, 'The Hobbit', 'Fantasy', 720.00),(5, 5, 'The Da Vinci Code', 'Mystery', 800.00),(6, 6, 'The Girl with the Sword', 'Mystery', 950.00),(7, 7, 'The Hunger Games', 'Sci-Fi', 120.00), (8, 6, 'Pride and Prejudice', 'Fiction', 240.30);
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
+
+-- Q1.Retrieve all books and their corresponding authors (include book_id, author_name, title)
+select book_id,author_name,title from books join authors on books.author_id=authors.author_id;
+
+-- Q2.Display all authors whose name ends with 'n' (include only author_name)
+select author_name from authors where author_name like '%n';
+
+-- Q3.Get the details of the book with the highest price (include book_id, title, price)
+ select book_id,title,price from books order by price DESC limit 1;
+
+-- Q4.Get the titles of all books written by American authors (include book_id, title, author_name, nationality)
+select book_id,title,author_name,nationality from books join authors on books.author_id=authors.author_id where nationality='American';
+
+-- Q5.List the authors and their birth year ordered by the birth year in ascending order (include author_name, birth_year)
+select author_name,birth_year from authors order by birth_year ASC;
+
+-- Q6.Get the details of the genre with the most books (include genre, total_books)
+-- Q7.Display genre and the total price (give 'total_price' for this column) of each genre with total price exceeds 1000
+-- Q8.Find the number of books written by each author (include author_name, book_count)
+
+

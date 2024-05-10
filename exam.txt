@@ -1,0 +1,66 @@
+Question 1:
+
+Create a table authors in MySQL database with the following schema and constraints: (4 Marks)
+
+authors(author_id, author_name, nationality, birth_year)
+
+author_id (identifier for an author) is an integer attribute. author_name (name of the author) is a variable character attribute of length 25. nationality (nationality of the author) is a variable character attribute of length 15. birth_year (birth year of the author) is an integer attribute.
+
+Constraints to set for the table authors:
+
+    author_id is the primary key
+    author_name should not be empty
+    birth_year must be between 1700 and 2000 and set its default value as 1900
+
+Question 2:
+
+Create a table books in MySQL database with the following schema and constraints: (4 Marks)
+
+books(book_id, author_id, title, genre, price)
+
+book_id ( identifier for a book) is an integer attribure. author_id (identifier for an author) is an integer attribute. title (title of the book) is a variable character attribure of length 100. genre (genre of the book) is a variable character attribure of length 50. price (price of the book) is a a floating point attribute with 3 decimal points and 2 fractional points.
+
+Constraints to set for the table books:
+
+    book_id is the primary key
+    author_id is the foreign key attribute that referes to author_id attribute of authors table
+    title should not be empty and must be unique
+    price must be between 0 and 1000
+
+Question 3:
+
+Insert the following records to the table authors: (2 Marks)
+
+    (1, F. Scott Fitzgerald, American, 1896)
+    (2, Harper Lee, American, 1926)
+    (3, J.K. Rowling, British, 1965)
+    (4, J.R.R. Tolkien, British, 1892)
+    (5, Dan Brown, American, 1964)
+    (6, Stieg Larsson, Swedish, 1954)
+    (7, Suzanne Collins, American, 1962)
+
+Question 4:
+
+Insert the following records to the table books: (2 Marks)
+
+    (1, 1, The Great Gatsby, Fiction, 150.25)
+    (2, 2, To Kill a Mockingbird, Fiction, 230.70)
+    (3, 3, Harry Potter, Fantasy, 600.00)
+    (4, 4, The Hobbit, Fantasy, 720.00)
+    (5, 5, The Da Vinci Code, Mystery, 800.00)
+    (6, 6, The Girl with the Sword, Mystery, 950.00)
+    (7, 7, The Hunger Games, Sci-Fi, 120.00)
+    (8, 6, Pride and Prejudice, Fiction, 240.30)
+
+Question 5:
+
+Perform the following Queries: (8 Marks)
+
+    Retrieve all books and their corresponding authors (include book_id, author_name, title)
+    Display all authors whose name ends with 'n' (include only author_name)
+    Get the details of the book with the highest price (include book_id, title, price)
+    Get the titles of all books written by American authors (include book_id, title, author_name, nationality)
+    List the authors and their birth year ordered by the birth year in ascending order (include author_name, birth_year)
+    Get the details of the genre with the most books (include genre, total_books)
+    Display genre and the total price (give 'total_price' for this column) of each genre with total price exceeds 1000
+    Find the number of books written by each author (include author_name, book_count)
